@@ -19,8 +19,8 @@ struct SolidCalculationView: View {
     @State var twistForceCalculationLowerResult = ""
     @State var twistForceCalculationUpperResult = ""
     
-    let materials = ["軟鉄","アルミ","鋳鉄"]
-    @State var selectedMaterial = "軟鉄"
+    let materials = ["軟鋼","アルミ","鋳鉄"]
+    @State var selectedMaterial = "軟鋼"
     
     var body: some View {
         //        Text("中実丸棒を計算するページ")
@@ -34,7 +34,7 @@ struct SolidCalculationView: View {
                     .frame(width: 300)
                 Spacer()
             }
-            .padding(25)
+            .padding(10)
             HStack {
                 Spacer()
                 Picker("材質", selection: $selectedMaterial) {
@@ -44,7 +44,7 @@ struct SolidCalculationView: View {
                 }
                 Spacer()
             }
-            .padding(25)
+            .padding(10)
             HStack {
                 Text("軸力計算値")
                     .padding(.trailing,50)
@@ -52,7 +52,7 @@ struct SolidCalculationView: View {
                 Text("N/μ")
             }
             .font(.title)
-            .padding(.top, 25)
+            .padding(.top, 10)
             HStack {
                 Text("校正許容範囲＝")
                     .padding(.trailing,10)
@@ -60,7 +60,7 @@ struct SolidCalculationView: View {
                 Text("〜")
                 Text(axialForceCalculationUpperResult)
             }
-            .font(.callout)
+            .font(.headline)
             .padding(.bottom, 25)
             HStack {
                 Text("曲げ計算値")
@@ -78,7 +78,7 @@ struct SolidCalculationView: View {
                 Text("〜")
                 Text(bendingForceCalculationUpperResult)
             }
-            .font(.callout)
+            .font(.headline)
             .padding(.bottom, 25)
             HStack {
                 Text("捩り計算値")
@@ -95,9 +95,9 @@ struct SolidCalculationView: View {
                 Text("〜")
                 Text(twistForceCalculationUpperResult)
             }
-            .font(.callout)
+            .font(.headline)
             .padding(.bottom, 25)
-//            Spacer()
+
             HStack {
                 Button(action: {
                     guard let doubleDiameter = Double(diameter) else { return }
@@ -113,8 +113,6 @@ struct SolidCalculationView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
-            .padding(.bottom, 200)
-//            Spacer()
         }
     }
     
@@ -123,7 +121,7 @@ struct SolidCalculationView: View {
         var materialCoefficient:Double = 0
         
         switch selectedMaterial {
-        case "軟鉄":
+        case "軟鋼":
             materialCoefficient = 0.2058
         case "アルミ":
             materialCoefficient = 0.0680

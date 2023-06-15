@@ -20,8 +20,8 @@ struct HollowCalculationView: View {
     @State var twistForceCalculationLowerResult = ""
     @State var twistForceCalculationUpperResult = ""
     
-    let materials = ["軟鉄","アルミ","鋳鉄"]
-    @State var selectedMaterial = "軟鉄"
+    let materials = ["軟鋼","アルミ","鋳鉄"]
+    @State var selectedMaterial = "軟鋼"
     
     var body: some View {
         VStack {
@@ -55,7 +55,7 @@ struct HollowCalculationView: View {
                 }
                 Spacer()
             }
-            .padding(25)
+            .padding(10)
             HStack {
                 Text("軸力計算値")
                     .padding(.trailing,50)
@@ -64,7 +64,7 @@ struct HollowCalculationView: View {
 
             }
             .font(.title)
-            .padding(.top, 25)
+            .padding(.top, 10)
             
             HStack {
                 Text("校正許容範囲＝")
@@ -73,7 +73,7 @@ struct HollowCalculationView: View {
                 Text("〜")
                 Text(axialForceCalculationUpperResult)
             }
-            .font(.callout)
+            .font(.headline)
             .padding(.bottom, 25)
             
             HStack {
@@ -92,7 +92,7 @@ struct HollowCalculationView: View {
                 Text("〜")
                 Text(bendingForceCalculationUpperResult)
             }
-            .font(.callout)
+            .font(.headline)
             .padding(.bottom, 25)
             
             HStack {
@@ -111,7 +111,7 @@ struct HollowCalculationView: View {
                 Text("〜")
                 Text(twistForceCalculationUpperResult)
             }
-            .font(.callout)
+            .font(.headline)
             .padding(.bottom, 25)
             
             HStack {
@@ -130,7 +130,6 @@ struct HollowCalculationView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                 }
             }
-            .padding(.bottom, 150)
         }
     }
     
@@ -139,7 +138,7 @@ struct HollowCalculationView: View {
         var materialCoefficient:Double = 0
         
         switch selectedMaterial {
-        case "軟鉄":
+        case "軟鋼":
             materialCoefficient = 0.2058
         case "アルミ":
             materialCoefficient = 0.0680
